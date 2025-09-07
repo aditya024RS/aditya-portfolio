@@ -11,7 +11,7 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-sans", display: "swa
 const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-serif", display: "swap" });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://your-domain.com"), // 👉 replace on deploy
+  metadataBase: new URL("https://adityarajsingh-portfolio.vercel.app"),
   title: "Aditya Raj Singh — Portfolio",
   description: "Minimal code, maximal impact.",
   authors: [{ name: "Aditya Raj Singh" }],
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Aditya Raj Singh — Portfolio",
     description: "Minimal code, maximal impact.",
-    url: "https://your-domain.com",   // 👉 replace on deploy
+    url: "https://adityarajsingh-portfolio.vercel.app",
     siteName: "Aditya Raj Singh — Portfolio",
     images: [{ url: "/og.png", width: 1200, height: 630, alt: "Portfolio preview" }], // put og.png in /public
     locale: "en_IN",

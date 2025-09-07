@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://your-domain.com/sitemap.xml", // 👉 replace on deploy
+    sitemap: "https://adityarajsingh-portfolio.vercel.app/sitemap.xml",
   };
 }

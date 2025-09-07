@@ -48,7 +48,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
       title: data.title,
       description: data.excerpt,
       type: "article",
-      url: `https://yourdomain.com/blog/${params.slug}`,
+      url: `https://adityarajsingh-portfolio.vercel.app/blog/${params.slug}`,
       images: ["/og-image.png"], // 👈 reuse your OG image
     },
   };
