@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import Section from "./Section";
-import { all } from "three/tsl";
 
 const testimonials = [
   {

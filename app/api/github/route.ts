@@ -1,5 +1,37 @@
 import { NextResponse } from "next/server";
 
+type Commit = {
+  message: string;
+  sha: string;
+};
+
+type PullRequest = {
+  title?: string;
+  html_url?: string;
+};
+
+type Issue = {
+  title?: string;
+  html_url?: string;
+};
+
+type EventPayload = {
+  commits?: Commit[];
+  pull_request?: PullRequest;
+  issue?: Issue;
+  action?: string;
+  ref_type?: string;
+  ref?: string;
+};
+
+type GitHubEvent = {
+  id: string;
+  type: string;
+  repo?: { name?: string };
+  created_at: string;
+  payload?: EventPayload;
+};
+
 type Activity = {
   id: string;
   type: string;
@@ -26,8 +58,7 @@ export async function GET() {
     const res = await fetch(
       `https://api.github.com/users/${USER}/events/public`,
       {
-        // cache for 5 minutes to avoid hitting rate-limits
-        next: { revalidate: 300 },
+        next: { revalidate: 300 }, // cache for 5 mins
         headers,
       }
     );
@@ -40,25 +71,23 @@ export async function GET() {
       );
     }
 
-    const items = (await res.json()) as any[];
+    const items: GitHubEvent[] = await res.json();
 
     const normalized: Activity[] = items
       .map((e) => {
-        const type = e.type as string;
-        const repo = e.repo?.name as string | undefined;
-        const createdAt = e.created_at as string;
+        const type = e.type;
+        const repo = e.repo?.name;
+        const createdAt = e.created_at;
         if (!repo) return null;
 
-        // Defaults
         let action = "activity";
         let message = type;
         let url = repoUrl(repo);
 
-        // Handle common event types
         switch (type) {
           case "PushEvent": {
             action = "pushed";
-            const commits: any[] = e.payload?.commits || [];
+            const commits = e.payload?.commits || [];
             const first = commits[0];
             message =
               commits.length > 0
@@ -70,16 +99,14 @@ export async function GET() {
           }
           case "PullRequestEvent": {
             const pr = e.payload?.pull_request;
-            const prAction = e.payload?.action;
-            action = prAction || "pull_request";
+            action = e.payload?.action || "pull_request";
             message = pr?.title || "Pull request";
             url = pr?.html_url || repoUrl(repo);
             break;
           }
           case "IssuesEvent": {
             const issue = e.payload?.issue;
-            const issAction = e.payload?.action;
-            action = issAction || "issue";
+            action = e.payload?.action || "issue";
             message = issue?.title || "Issue";
             url = issue?.html_url || repoUrl(repo);
             break;
@@ -99,7 +126,6 @@ export async function GET() {
             break;
           }
           default: {
-            // Keep it generic for other events
             action = type.replace(/Event$/, "").toLowerCase();
             message = action;
             url = repoUrl(repo);
@@ -107,7 +133,7 @@ export async function GET() {
         }
 
         return {
-          id: e.id as string,
+          id: e.id,
           type,
           repo,
           action,
@@ -117,12 +143,14 @@ export async function GET() {
         } satisfies Activity;
       })
       .filter((activity): activity is Activity => activity !== null)
-      .slice(0, 8); // show latest 8 items
+      .slice(0, 8);
 
     return NextResponse.json({ ok: true, data: normalized });
-  } catch (err: any) {
+  } catch (err) {
+    const errorMessage =
+      err instanceof Error ? err.message : "Unknown error occurred";
     return NextResponse.json(
-      { ok: false, error: err?.message || "Unknown error" },
+      { ok: false, error: errorMessage },
       { status: 500 }
     );
   }

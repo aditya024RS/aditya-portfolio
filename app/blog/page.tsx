@@ -39,7 +39,7 @@ export default function BlogPage() {
           >
             <h2 className="text-xl font-serif">{post.title}</h2>
             <p className="text-sm opacity-70">{post.date}</p>
-            <p className="mt-2 text-black dark:text-accent-500">"{post.excerpt}"</p>
+            <p className="mt-2 text-black dark:text-accent-500">&quot;{post.excerpt}&quot;</p>
           </Link>
         ))}
       </div>

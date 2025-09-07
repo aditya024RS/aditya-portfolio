@@ -27,7 +27,7 @@ export default async function BlogPost({ params }: { params: { slug: string } })
         </p>
         <h1 className="font-serif">{data.title}</h1>
         <p className="text-sm opacity-70">{data.date}</p>
-        <p className="font-serif dark:border-base-800 border-b border-base-100 pb-6 mb-12">"{data.excerpt}"</p>
+        <p className="font-serif dark:border-base-800 border-b border-base-100 pb-6 mb-12">&quot;{data.excerpt}&quot;</p>
         <MDXRemote source={content} />
       </article>
     </Section>

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 type Activity = {
   id: string;
@@ -73,7 +74,7 @@ export default function GitHubActivity() {
           Couldn’t load live activity right now! Here’s a recent contribution graph :
         </p>
         <div className="mt-3 overflow-hidden rounded-xl2 border border-base-100 dark:border-base-800">
-          <img
+          <Image
             src={`https://ghchart.rshah.org/${user}`}
             alt="GitHub contribution graph"
             className="w-full"

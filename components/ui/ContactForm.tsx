@@ -45,7 +45,7 @@ export default function ContactForm() {
         setStatus("success");
         form.reset();
       }
-    } catch (err) {
+    } catch {
       setStatus("error: Failed to connect to server");
     }
   }
