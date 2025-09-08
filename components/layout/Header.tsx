@@ -44,7 +44,7 @@ export default function Header() {
               priority
             />
           </motion.div>
-          <span className="font-serif text-lg font-bold">Aditya Raj Singh</span>
+          <span className="font-serif text-lg font-bold dark:text-accent-700 dark:hover:text-accent-500">Aditya Raj Singh</span>
         </Link>
 
         {/* Desktop Nav */}
@@ -53,7 +53,7 @@ export default function Header() {
             <a
               key={link.href}
               href={link.href}
-              className="hover:text-accent-400 transition-all duration-300"
+              className="hover:text-accent-400 transition-all duration-300 dark:text-accent-700 dark:hover:text-accent-500"
             >
               {link.label}
             </a>
