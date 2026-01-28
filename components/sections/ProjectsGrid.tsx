@@ -10,9 +10,10 @@ import Modal from "../ui/Modal";
 const projects = [
   {
     title: "Recyconnect",
+    featured: true,
     description: "A Sustainable waste management platform connecting recyclers with users.",
     details: "Engineered a full-stack, map-based web application to connect users with local recycling services, featuring an interactive map (Leaflet.js) and secure JWT and OAuth2 authentication, dynamic user/provider dashboards, real time map filtering, and data management with PostgreSQL.",
-    tags: ["Full-Stack", "Web", "React", "Spring Boot", "PostgreSQL","TailwindCSS", "REST APIs", "Java"],
+    tags: ["Full-Stack", "React", "Spring Boot", "PostgreSQL","TailwindCSS", "REST APIs", "Java"],
     link: "https://github.com/aditya024RS/Recyconnect",
     images: ["/projects/recyconnect-1.png", "/projects/recyconnect-2.png", "/projects/recyconnect-3.png", "/projects/recyconnect-4.png", "/projects/recyconnect-5.png"]
   },
@@ -20,7 +21,7 @@ const projects = [
     title: "E-Commerce Platform",
     description: "An End-to-end shopping app with Product browsing, Cart funcationality, Orders and Tracking.",
     details: "A fully functional Amazon clone built with JavaScript, HTML, and CSS. This project replicates core e-commerce features like product browsing, search, shopping cart, checkout, orders and tracking. Designed to be responsive and user-friendly.",
-    tags: ["Frontend", "Web", "JavaScript"],
+    tags: ["Frontend", "JavaScript"],
     link: "https://github.com/aditya024RS/Amazon-Clone-JavaScript",
     images: ["/projects/ecommerce-1.png", "/projects/ecommerce-2.png", "/projects/ecommerce-3.png", "/projects/ecommerce-4.png"],
   },
@@ -28,7 +29,7 @@ const projects = [
     title: "AdiBook",
     description: "A secure and modern PHP-based user login system with authentication and session management.",
     details: "Users Login System is a secure and responsive user authentication system built using PHP, MySQL, HTML/CSS. It allows users to register, log in, manage profiles, and recover passwords. The system uses hashed passwords, session-based authentication, and MySQL relational tables to ensure data integrity and security.",
-    tags: ["Full-Stack", "Web", "PHP", "MySQL"],
+    tags: ["Full-Stack", "PHP", "MySQL"],
     link: "https://github.com/aditya024RS/Users_Login_System_PHP",
     images: ["/projects/adibook-1.png", "/projects/adibook-2.png", "/projects/adibook-3.png"],
   },
@@ -36,7 +37,7 @@ const projects = [
     title: "Movie Recommendation App",
     description: "A responsive movie search application built with React, utilizing the TMDB API.",
     details: "A dynamic React application built featuring real-time data fetching from a public API, reusable components, and responsive design.",  
-    tags: ["Frontend", "Web", "React"],
+    tags: ["Frontend", "React"],
     link: "https://github.com/aditya024RS/Movie-App-React",
     images: ["/projects/movie-reco-1.png", "/projects/movie-reco-2.png", "/projects/movie-reco-3.png", "/projects/movie-reco-4.png"],
   },
@@ -44,13 +45,13 @@ const projects = [
     title: "BulkBuddy",
     description: "A full-stack web app that helps street vendors source raw materials at the best prices from nearby stores.  ~|Contributor|",
     details: "A streamlined bulk ordering platform built with React and Firebase for vendors. It features sellers to list their shops with items. And vendors, who can search for nearby stores and place a bulk-order for an item. It has dynamic role-based dashboards with modern UI/UX with accurate analysis of spends and income.",  
-    tags: ["Frontend", "Web", "React"],
+    tags: ["Frontend", "React"],
     link: "https://github.com/Akash-Adak/Vendor-Bulk-Order",
     images: ["/projects/bulkbuddy-1.png", "/projects/bulkbuddy-2.png", "/projects/bulkbuddy-3.png"],
   },
 ];
 
-const allTags = ["All", "Full-Stack", "Web", "React", "Spring Boot", "Java", "PostgreSQL", "TailwindCSS", "REST APIs", "Frontend", "JavaScript",  "PHP", "MySQL"];
+const allTags = ["All", "Full-Stack", "React", "Spring Boot", "Java", "PostgreSQL", "TailwindCSS", "REST APIs", "Frontend", "JavaScript",  "PHP", "MySQL"];
 
 export default function ProjectsGrid() {
   const [filter, setFilter] = useState("All");

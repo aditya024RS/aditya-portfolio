@@ -9,7 +9,7 @@ export default function ContactForm() {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | string>("idle");
 
   const copyEmail = () => {
-    navigator.clipboard.writeText("sadityaraj2204@gmail.com");
+    navigator.clipboard.writeText("s.adityaraj2204@gmail.com");
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -65,7 +65,7 @@ export default function ContactForm() {
           className="text-accent-500 font-medium hover:text-accent-700 transition-colors"
           aria-label="Copy email address to clipboard"
         >
-          {copied ? "✔ Email Copied!" : "📧 sadityaraj2204@gmail.com"}
+          {copied ? "✔ Email Copied!" : "📧 s.adityaraj2204@gmail.com"}
         </button>
       </div>
 
@@ -78,7 +78,7 @@ export default function ContactForm() {
           placeholder="Your Name"
           autoComplete="name"
           required
-          className="w-full rounded-xl2 border border-base-100 px-4 py-3 focus:ring-2 focus:ring-accent-500 outline-none"
+          className="w-full rounded-xl2 border border-base-100 px-4 py-3 focus:ring-2 focus:ring-accent-500 outline-none dark:text-black"
         />
         <input
           id="email"
@@ -88,7 +88,7 @@ export default function ContactForm() {
           required
           autoComplete="email"
           inputMode="email"
-          className="w-full rounded-xl2 border border-base-100 px-4 py-3 focus:ring-2 focus:ring-accent-500 outline-none"
+          className="w-full rounded-xl2 border border-base-100 px-4 py-3 focus:ring-2 focus:ring-accent-500 outline-none dark:text-black"
         />
         <textarea
           id="message"
@@ -96,7 +96,7 @@ export default function ContactForm() {
           placeholder="Your Message"
           rows={4}
           required
-          className="w-full rounded-xl2 border border-base-100 px-4 py-3 focus:ring-2 focus:ring-accent-500 outline-none"
+          className="w-full rounded-xl2 border border-base-100 px-4 py-3 focus:ring-2 focus:ring-accent-500 outline-none dark:text-black"
         ></textarea>
         <button
           type="submit"
@@ -129,7 +129,7 @@ export default function ContactForm() {
           <FaGithub />
         </a>
         <a
-          href="https://www.linkedin.com/in/aditya-raj-singh-5003a62a7"
+          href="https://www.linkedin.com/in/aditya-raj-singh-1h2a3r4s5h"
           target="_blank"
           rel="noreferrer noopener"
           className="hover:text-accent-400 transition-colors duration-200 text-4xl"

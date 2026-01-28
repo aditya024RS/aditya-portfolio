@@ -138,7 +138,7 @@ export default function HomePage() {
       {/* Footer */}
       <footer className="py-8 text-sm text-center border-t border-base-100 dark:border-base-800 bg-white dark:bg-black transition-colors z-[1000]">
         <div className="text-base-700 dark:text-gray-400">
-          © 2025 Aditya Raj Singh. All Rights Reserved.
+          © {new Date().getFullYear()} Aditya Raj Singh. All Rights Reserved.
         </div>
         <div className="mt-1 text-accent-500 dark:text-accent-400">
           Pushing boundaries, one project at a time.
